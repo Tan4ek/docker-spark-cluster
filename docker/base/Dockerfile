@@ -1,4 +1,6 @@
 FROM arm32v7/openjdk:8-jdk-alpine
+LABEL author="Nathaniel Vala" email="nathanielvala@hotmail.com"
+LABEL version="0.2"
 
 ENV DAEMON_RUN=true
 ENV SPARK_VERSION=2.4.3
@@ -22,7 +24,7 @@ RUN cd "/tmp" && \
 # Add Dependencies for PySpark
 RUN apt-get install -y python3 python3-pip python3-numpy python3-matplotlib python3-scipy python3-pandas python3-simpy
 RUN update-alternatives --install "/usr/bin/python" "python" "$(which python3)" 1
-    
+
 #Scala instalation
 RUN export PATH="/usr/local/sbt/bin:$PATH" && \
 	apk update && apk add ca-certificates wget tar && \
@@ -38,3 +40,7 @@ RUN wget --no-verbose http://archive.apache.org/dist/spark/spark-${SPARK_VERSION
 # Add Dependencies for PySpark
 RUN apt-get install -y python3 python3-pip python3-numpy python3-matplotlib python3-scipy python3-pandas python3-simpy
 RUN update-alternatives --install "/usr/bin/python" "python" "$(which python3)" 1
+
+# Fix the value of PYTHONHASHSEED
+# Note: this is needed when you use Python 3.3 or greater
+ENV PYTHONHASHSEED 1
