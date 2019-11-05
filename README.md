@@ -1,4 +1,4 @@
-# Spark Cluster with Docker & docker-compose
+# Spark Cluster with Docker & docker-compose for Raspberry Pi 3 cluster
 
 # General
 
@@ -216,3 +216,7 @@ Running Spark using the REST application submission protocol.
 * Right now I don't have enough resources to make a Yarn, Mesos or Kubernetes based cluster :(.
 
 * This will be useful to use CI/CD pipelines for your spark apps(A really difficult and hot topic)
+
+
+Для запуска использовать `docker stack deploy --compose-file docker-compose.yml spark`
+Для остановки использовать `docker stack rm spark`
