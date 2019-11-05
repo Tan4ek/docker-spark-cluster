@@ -10,6 +10,3 @@ docker push tan4ek.nas.local:5000/spark-master:2.3.1
 
 docker build -t tan4ek.nas.local:5000/spark-worker:2.3.1 ./docker/spark-worker
 docker push tan4ek.nas.local:5000/spark-worker:2.3.1
-
-docker build -t tan4ek.nas.local:5000/spark-submit:2.3.1 ./docker/spark-submit
-docker push tan4ek.nas.local:5000/spark-submit:2.3.1
